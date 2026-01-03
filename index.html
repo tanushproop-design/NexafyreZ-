@@ -5,21 +5,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexafyreZ</title>
   <style>
-    /* ===== Reset ===== */
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial Black', Arial, sans-serif; }
-
     html, body { height:100%; width:100%; overflow:hidden; }
 
-    /* ===== Background Video ===== */
-    #bg-video {
-      position: fixed;
-      top:0;
-      left:0;
-      min-width:100%;
-      min-height:100%;
-      object-fit:cover;
+    /* ===== GIF Background ===== */
+    body {
+      background: url('nexa.gif') no-repeat center center fixed;
+      background-size: cover;
       filter: grayscale(100%) brightness(50%);
-      z-index:-1;
     }
 
     /* ===== Gradient Overlay ===== */
@@ -96,12 +89,6 @@
 </head>
 <body>
 
-  <!-- Background Video -->
-  <video autoplay muted loop id="bg-video">
-    <source src="your-video.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-
   <!-- Top Bold Header -->
   <header>Welcome to the NexafyreZ</header>
 
@@ -112,4 +99,4 @@
   </div>
 
 </body>
-  </html>
+</html>
