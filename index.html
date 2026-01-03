@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>NexafyreZ</title>
   <style>
-    /* ===== Reset ===== */
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial Black', Arial, sans-serif; }
 
     html, body { height:100%; width:100%; overflow:hidden; }
@@ -35,8 +34,8 @@
       width: 100%;
       text-align: center;
       color: white;
-      font-size: 4em;          /* Thoda bada font */
-      font-weight: 1000;       /* Extra bold */
+      font-size: 4em;          /* Default PC size */
+      font-weight: 900;       
       letter-spacing: 5px;
       text-transform: uppercase;
       text-shadow: 0 0 15px #fff, 0 0 30px #fff, 0 0 45px #fff, 0 0 60px #fff;
@@ -102,6 +101,31 @@
     }
 
     .btn:hover::before { left:100%; }
+
+    /* ===== Mobile Responsive ===== */
+    @media only screen and (max-width: 768px) {
+      header {
+        font-size: 2.5em;      /* Mobile-friendly size */
+        letter-spacing: 3px;
+      }
+
+      .btn {
+        font-size: 1.1em;
+        padding:12px 40px;
+      }
+    }
+
+    @media only screen and (max-width: 480px) {
+      header {
+        font-size: 2em;
+        letter-spacing: 2px;
+      }
+
+      .btn {
+        font-size: 1em;
+        padding:10px 30px;
+      }
+    }
 
   </style>
 </head>
