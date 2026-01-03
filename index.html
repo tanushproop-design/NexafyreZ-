@@ -28,18 +28,18 @@
       z-index:-1;
     }
 
-    /* ===== Top Bold Header with Glow ===== */
+    /* ===== Top Bold Header with Strong Glow ===== */
     header {
       position: absolute;
       top: 20px;
       width: 100%;
       text-align: center;
       color: white;
-      font-size: 3em;
-      font-weight: 900;
-      letter-spacing: 4px;
+      font-size: 4em;          /* Thoda bada font */
+      font-weight: 1000;       /* Extra bold */
+      letter-spacing: 5px;
       text-transform: uppercase;
-      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff;
+      text-shadow: 0 0 15px #fff, 0 0 30px #fff, 0 0 45px #fff, 0 0 60px #fff;
       animation: glow 2s ease-in-out infinite alternate, fadeInTop 2s ease forwards;
       z-index: 10;
     }
@@ -50,9 +50,9 @@
     }
 
     @keyframes glow {
-      0% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff; }
-      50% { text-shadow: 0 0 15px #fff, 0 0 25px #fff, 0 0 35px #fff; }
-      100% { text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff; }
+      0% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff; }
+      50% { text-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff, 0 0 80px #fff; }
+      100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff; }
     }
 
     /* ===== Centered Buttons ===== */
