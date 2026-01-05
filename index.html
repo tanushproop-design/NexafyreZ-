@@ -15,7 +15,7 @@
 
 html{scroll-behavior:smooth;}
 
-/* ===== DARK BLUE GRADIENT BACKGROUND ===== */
+/* ===== BACKGROUND ===== */
 body{
   min-height:100vh;
   background: linear-gradient(135deg, #000428, #004e92);
@@ -26,7 +26,7 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.3); /* subtle overlay */
+  background:rgba(0,0,0,0.3);
   z-index:-1;
 }
 
@@ -59,22 +59,25 @@ header{
   gap:25px;
 }
 
-/* ===== ANIMATED BUTTON ===== */
+/* ===== BUTTON INSIDE BOX ===== */
 .btn, .action-btn{
   position:relative;
   overflow:hidden;
-  padding:15px 55px;
-  font-size:1.3em;
+  padding:15px 50px;
+  font-size:1.2em;
   border:none;
   border-radius:16px;
   cursor:pointer;
   color:white;
   text-decoration:none;
-
   background:linear-gradient(135deg,#00c6ff,#009dff);
   box-shadow:0 0 30px rgba(0,198,255,0.9);
+  margin-top:auto; /* vertical spacing inside box */
+  align-self:center; /* center horizontally */
+  display:block;
 }
 
+/* MOVING LINE INSIDE BUTTON */
 .btn::before,
 .action-btn::before{
   content:"";
@@ -110,51 +113,51 @@ header{
 /* ===== BOX ===== */
 .box{
   display:flex;
-  gap:30px;
-  max-width:950px;
+  flex-direction:column; /* vertical for better button spacing */
+  gap:25px;
+  max-width:700px;
   width:100%;
   padding:40px;
   border-radius:26px;
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(14px);
-
-  box-shadow:
-    0 0 45px rgba(0,198,255,0.6),
-    inset 0 0 25px rgba(255,255,255,0.08);
+  box-shadow:0 0 45px rgba(0,198,255,0.6), inset 0 0 25px rgba(255,255,255,0.08);
 }
 
-.left{flex:1;}
+.left, .right{flex:1;}
 .left small{opacity:0.6;}
 .left h2{
-  font-size:2.8em;
-  margin:15px 0;
+  font-size:2.5em;
+  margin:10px 0;
   background:linear-gradient(90deg,#00c6ff,#00e5ff,#009dff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 .left p{margin-bottom:18px; opacity:0.9;}
 
-.right{flex:1; display:flex; justify-content:center; align-items:center;}
+/* RIGHT IMAGE */
+.right{display:flex; justify-content:center; align-items:center;}
 .right img{
   width:100%;
-  max-width:420px;
+  max-width:400px;
   border-radius:24px;
-  box-shadow:0 0 45px rgba(0,198,255,0.8);
+  box-shadow:0 0 40px rgba(0,198,255,0.8);
 }
 
+/* CLOSE BUTTON */
 .closeBtn{
-  margin-top:18px;
+  margin-top:15px;
   background:none;
   border:none;
   color:#00c6ff;
   cursor:pointer;
 }
 
-/* ===== MOBILE ===== */
+/* MOBILE */
 @media(max-width:768px){
   header{font-size:2.3em;}
   .box{flex-direction:column; text-align:center;}
-  .right img{max-width:300px;}
+  .right img{max-width:280px;}
 }
 
 /* ===== ANIMATIONS ===== */
@@ -180,6 +183,7 @@ header{
       <h2>Server Info</h2>
       <p>Yahan tum apne server ke baare me likh sakte ho. Rules, features, community info sab edit kar sakte ho.</p>
 
+      <!-- VISIT SERVER BUTTON -->
       <a href="https://yourserverdomain.com" class="action-btn">Visit Server</a>
     </div>
 
@@ -197,6 +201,7 @@ header{
       <h2>Staff Apply</h2>
       <p>Active aur responsible ho? Staff team join karo.</p>
 
+      <!-- STAFF APPLY BUTTON -->
       <a href="https://applydomain.com" class="action-btn">Apply Now</a><br>
 
       <button class="closeBtn" onclick="closeAll()">Close</button>
