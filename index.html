@@ -1,144 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>NexafyreZ</title>
-  <style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Arial Black', Arial, sans-serif; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NexafyreZ</title>
 
-    html, body { height:100%; width:100%; overflow:hidden; }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Arial Black', Arial, sans-serif;
+}
 
-    /* ===== GIF Background ===== */
-    body {
-      background: url('nexa.gif') no-repeat center center fixed;
-      background-size: cover;
-      filter: grayscale(100%) brightness(50%);
-    }
+html,body{
+  height:100%;
+  width:100%;
+  overflow:hidden;
+}
 
-    /* ===== Gradient Overlay ===== */
-    body::after {
-      content:"";
-      position:fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background: linear-gradient(135deg, #000000, #555555);
-      opacity:0.5;
-      z-index:-1;
-    }
+/* ===== GIF BACKGROUND ===== */
+body{
+  background:url('nexa.gif') no-repeat center center fixed;
+  background-size:cover;
+}
 
-    /* ===== Top Bold Header with Strong Glow ===== */
-    header {
-      position: absolute;
-      top: 20px;
-      width: 100%;
-      text-align: center;
-      color: white;
-      font-size: 4em;          /* Default PC size */
-      font-weight: 900;       
-      letter-spacing: 5px;
-      text-transform: uppercase;
-      text-shadow: 0 0 15px #fff, 0 0 30px #fff, 0 0 45px #fff, 0 0 60px #fff;
-      animation: glow 2s ease-in-out infinite alternate, fadeInTop 2s ease forwards;
-      z-index: 10;
-    }
+/* ===== DARK OVERLAY ===== */
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:-1;
+}
 
-    @keyframes fadeInTop {
-      0% { opacity:0; transform: translateY(-50px); }
-      100% { opacity:1; transform: translateY(0); }
-    }
+/* ===== HEADER BLUE GRADIENT ===== */
+header{
+  position:absolute;
+  top:20px;
+  width:100%;
+  text-align:center;
+  font-size:4em;
+  font-weight:900;
+  letter-spacing:5px;
+  text-transform:uppercase;
 
-    @keyframes glow {
-      0% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff; }
-      50% { text-shadow: 0 0 20px #fff, 0 0 40px #fff, 0 0 60px #fff, 0 0 80px #fff; }
-      100% { text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff; }
-    }
+  background:linear-gradient(90deg,#00c6ff,#0072ff,#00c6ff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 
-    /* ===== Centered Buttons ===== */
-    .container {
-      height:100vh;
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      color:white;
-      z-index: 5;
-    }
+  text-shadow:
+    0 0 15px rgba(0,198,255,0.9),
+    0 0 30px rgba(0,114,255,0.8);
 
-    .btn {
-      padding:15px 50px;
-      margin:15px;
-      border:2px solid white;
-      background: linear-gradient(45deg, #ff0000, #ff9900);
-      color:white;
-      font-size:1.3em;
-      font-weight: bold;
-      cursor:pointer;
-      position:relative;
-      overflow:hidden;
-      border-radius:10px;
-      text-decoration:none;
-      display:inline-block;
-      transition: all 0.5s ease;
-      box-shadow: 0 0 5px #fff;
-    }
+  animation: textMove 4s linear infinite, fadeIn 1.5s ease;
+}
 
-    .btn:hover {
-      background: linear-gradient(45deg, #ff9900, #ff0000);
-      transform: scale(1.1);
-      box-shadow: 0 0 20px #fff, 0 0 30px #fff;
-      color: white;
-    }
+/* ===== CENTER ===== */
+.container{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:18px;
+}
 
-    .btn::before {
-      content:'';
-      position:absolute;
-      top:0; left:-100%;
-      width:100%; height:100%;
-      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.6), transparent);
-      transition: all 0.5s;
-    }
+/* ===== SKY BLUE GRADIENT BUTTONS ===== */
+.btn{
+  padding:15px 55px;
+  font-size:1.3em;
+  font-weight:bold;
+  color:white;
+  text-decoration:none;
+  border-radius:12px;
+  border:none;
 
-    .btn:hover::before { left:100%; }
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+  background-size:200% 200%;
 
-    /* ===== Mobile Responsive ===== */
-    @media only screen and (max-width: 768px) {
-      header {
-        font-size: 2.5em;      /* Mobile-friendly size */
-        letter-spacing: 3px;
-      }
+  box-shadow:
+    0 0 15px rgba(0,198,255,0.6),
+    inset 0 0 10px rgba(255,255,255,0.3);
 
-      .btn {
-        font-size: 1.1em;
-        padding:12px 40px;
-      }
-    }
+  transition:0.4s ease;
+  animation: btnMove 3s infinite linear;
+}
 
-    @media only screen and (max-width: 480px) {
-      header {
-        font-size: 2em;
-        letter-spacing: 2px;
-      }
+.btn:hover{
+  transform:scale(1.12);
+  box-shadow:
+    0 0 30px rgba(0,198,255,1),
+    0 0 50px rgba(0,114,255,0.9);
+}
 
-      .btn {
-        font-size: 1em;
-        padding:10px 30px;
-      }
-    }
+/* ===== ANIMATIONS ===== */
+@keyframes textMove{
+  to{background-position:200% center;}
+}
 
-  </style>
+@keyframes btnMove{
+  0%{background-position:0% 50%;}
+  100%{background-position:200% 50%;}
+}
+
+@keyframes fadeIn{
+  from{opacity:0; transform:translateY(-30px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* ===== MOBILE FIX ===== */
+@media(max-width:768px){
+  header{
+    font-size:2.5em;
+    letter-spacing:3px;
+  }
+  .btn{
+    font-size:1.1em;
+    padding:13px 40px;
+  }
+}
+</style>
 </head>
+
 <body>
 
-  <!-- Top Bold Glow Header -->
-  <header>Welcome to the NexafyreZ</header>
+<header>WELCOME TO THE NEXAFYREZ</header>
 
-  <!-- Centered Buttons -->
-  <div class="container">
-    <a href="https://example.com/join" class="btn" target="_blank">Join Now</a>
-    <a href="https://example.com/info" class="btn" target="_blank">Learn More</a>
-  </div>
+<div class="container">
+  <a href="https://example.com/join" class="btn">Join Now</a>
+  <a href="https://example.com/info" class="btn">Learn More</a>
+</div>
 
 </body>
 </html>
