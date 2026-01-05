@@ -13,12 +13,9 @@
   font-family:'Arial Black', Arial, sans-serif;
 }
 
-html{
-  scroll-behavior:smooth;
-}
+html{scroll-behavior:smooth;}
 
 body{
-  min-height:100vh;
   background:url('nexa.gif') no-repeat center center fixed;
   background-size:cover;
 }
@@ -31,7 +28,7 @@ body::after{
   z-index:-1;
 }
 
-/* ===== TOP HEADING ===== */
+/* ===== HEADER ===== */
 header{
   position:absolute;
   top:20px;
@@ -40,21 +37,17 @@ header{
   font-size:4em;
   font-weight:900;
   letter-spacing:5px;
-  text-transform:uppercase;
 
   background:linear-gradient(90deg,#00c6ff,#0072ff,#00c6ff);
-  background-size:200% auto;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
+  background-size:200% auto;
 
-  text-shadow:
-    0 0 15px rgba(0,198,255,0.9),
-    0 0 35px rgba(0,114,255,0.8);
-
-  animation:textMove 4s linear infinite;
+  text-shadow:0 0 25px rgba(0,198,255,0.9);
+  animation:move 4s linear infinite;
 }
 
-/* ===== CENTER BUTTONS ===== */
+/* ===== HERO ===== */
 .container{
   height:100vh;
   display:flex;
@@ -67,116 +60,81 @@ header{
 .btn{
   padding:15px 55px;
   font-size:1.3em;
-  font-weight:bold;
-  color:white;
   border:none;
   border-radius:14px;
   cursor:pointer;
+  color:white;
   text-decoration:none;
 
   background:linear-gradient(135deg,#00c6ff,#0072ff);
-  background-size:200% 200%;
-
-  box-shadow:0 0 25px rgba(0,198,255,0.7);
+  box-shadow:0 0 25px rgba(0,198,255,0.8);
   transition:0.4s;
 }
 
-.btn:hover{
-  transform:scale(1.12);
-  box-shadow:0 0 45px rgba(0,198,255,1);
-}
+.btn:hover{transform:scale(1.12);}
 
-/* ===== STAFF APPLY SECTION ===== */
-#staffSection{
+/* ===== COMMON SECTION ===== */
+.section{
   min-height:100vh;
   display:flex;
   justify-content:center;
   align-items:center;
   padding:60px 20px;
-  background:linear-gradient(180deg,#000000,#071629);
-
+  background:linear-gradient(180deg,#000,#071629);
   opacity:0;
   transform:translateY(120px);
   transition:1s ease;
 }
 
-#staffSection.active{
+.section.active{
   opacity:1;
   transform:translateY(0);
 }
 
-/* ===== STAFF BOX ===== */
-.staff-box{
+/* ===== BOX ===== */
+.box{
   display:flex;
   gap:30px;
   max-width:950px;
   width:100%;
   padding:35px;
   border-radius:22px;
-
   background:rgba(255,255,255,0.08);
   backdrop-filter:blur(14px);
-
-  box-shadow:
-    0 0 30px rgba(0,198,255,0.4),
-    inset 0 0 20px rgba(255,255,255,0.1);
+  box-shadow:0 0 35px rgba(0,198,255,0.4);
 }
 
-/* LEFT CONTENT */
-.staff-left{
-  flex:1;
-  color:white;
-}
-
-.staff-left small{
-  opacity:0.7;
-  letter-spacing:1px;
-}
-
-.staff-left h2{
-  font-size:2.8em;
+/* LEFT */
+.left{flex:1; color:white;}
+.left small{opacity:0.7;}
+.left h2{
+  font-size:2.6em;
   margin:15px 0;
   background:linear-gradient(90deg,#00c6ff,#0072ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
-
-.staff-left p{
-  font-size:1.05em;
-  margin-bottom:15px;
-  opacity:0.9;
-}
+.left p{margin-bottom:15px; opacity:0.9;}
 
 /* RIGHT IMAGE */
-.staff-right{
-  flex:1;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-}
-
-.staff-right img{
+.right{flex:1; display:flex; justify-content:center; align-items:center;}
+.right img{
   width:100%;
-  max-width:420px;
+  max-width:400px;
   border-radius:22px;
-  object-fit:cover;
-
-  box-shadow:
-    0 0 40px rgba(0,198,255,0.6);
+  box-shadow:0 0 40px rgba(0,198,255,0.6);
 }
 
-/* APPLY BUTTON */
-.apply-btn{
-  margin-top:15px;
+/* BUTTONS */
+.action-btn{
+  display:inline-block;
+  margin-top:10px;
   padding:12px 45px;
-  border:none;
   border-radius:14px;
-  font-size:1.1em;
-  cursor:pointer;
   color:white;
-
+  text-decoration:none;
   background:linear-gradient(135deg,#00c6ff,#0072ff);
-  box-shadow:0 0 25px rgba(0,198,255,0.7);
+  box-shadow:0 0 20px rgba(0,198,255,0.8);
 }
 
 .closeBtn{
@@ -184,30 +142,18 @@ header{
   background:none;
   border:none;
   color:#00c6ff;
-  font-size:1em;
   cursor:pointer;
 }
 
-/* ===== ANIMATION ===== */
-@keyframes textMove{
-  to{background-position:200% center;}
+/* MOBILE */
+@media(max-width:768px){
+  header{font-size:2.4em;}
+  .box{flex-direction:column; text-align:center;}
+  .right img{max-width:280px;}
 }
 
-/* ===== MOBILE FIX ===== */
-@media(max-width:768px){
-  header{
-    font-size:2.4em;
-    letter-spacing:3px;
-  }
-
-  .staff-box{
-    flex-direction:column;
-    text-align:center;
-  }
-
-  .staff-right img{
-    max-width:300px;
-  }
+@keyframes move{
+  to{background-position:200% center;}
 }
 </style>
 </head>
@@ -217,32 +163,62 @@ header{
 <header>WELCOME TO THE NEXAFYREZ</header>
 
 <div class="container">
-  <a href="https://example.com/join" class="btn">Join Now</a>
-  <button class="btn" onclick="openStaff()">Learn More</button>
+  <a href="https://yourdomain.com" class="btn">Join Now</a>
+  <button class="btn" onclick="openSection()">Learn More</button>
 </div>
 
-<!-- ===== STAFF APPLY ===== -->
-<section id="staffSection">
-  <div class="staff-box">
+<!-- ===== SERVER INFO ===== -->
+<section id="serverInfo" class="section">
+  <div class="box">
 
-    <div class="staff-left">
-      <small>nexafyreZ-staff-apply</small>
-      <h2>Staff-apply</h2>
+    <div class="left">
+      <small>nexafyreZ-server-info</small>
+      <h2>Server Info</h2>
 
       <p>
-        We've just opened staff applications for NexafyreZ!  
-        If you're active, chill, and want to help keep the server fun
-        and safe, this is your chance.
+        Yahan tum apne server ke baare me likh sakte ho.
+        Rules, features, community info sab edit kar sakte ho.
       </p>
 
-      <p>👉 Click below to apply</p>
+      <!-- 👇 SERVER INFO BUTTON DOMAIN -->
+      <a href="https://yourserverdomain.com" class="action-btn">
+        Visit Server
+      </a><br>
 
-      <button class="apply-btn">Staff Apply</button><br>
-      <button class="closeBtn" onclick="closeStaff()">Close</button>
+      <button class="closeBtn" onclick="closeAll()">Close</button>
     </div>
 
-    <div class="staff-right">
-      <!-- CHANGE IMAGE NAME -->
+    <div class="right">
+      <!-- SERVER INFO LOGO -->
+      <img src="server.png" alt="Server Logo">
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== STAFF APPLY ===== -->
+<section id="staffApply" class="section">
+  <div class="box">
+
+    <div class="left">
+      <small>nexafyreZ-staff-apply</small>
+      <h2>Staff Apply</h2>
+
+      <p>
+        Active, friendly aur responsible ho?
+        Toh NexafyreZ staff team join karo.
+      </p>
+
+      <!-- 👇 STAFF APPLY BUTTON DOMAIN -->
+      <a href="https://applydomain.com" class="action-btn">
+        Apply Now
+      </a><br>
+
+      <button class="closeBtn" onclick="closeAll()">Close</button>
+    </div>
+
+    <div class="right">
+      <!-- STAFF APPLY IMAGE -->
       <img src="staff.png" alt="Staff Apply">
     </div>
 
@@ -250,17 +226,20 @@ header{
 </section>
 
 <script>
-function openStaff(){
-  const sec = document.getElementById("staffSection");
-  sec.classList.add("active");
-  sec.scrollIntoView({behavior:"smooth"});
+function openSection(){
+  document.getElementById("serverInfo").classList.add("active");
+  document.getElementById("serverInfo").scrollIntoView({behavior:"smooth"});
 }
 
-function closeStaff(){
-  const sec = document.getElementById("staffSection");
-  sec.classList.remove("active");
-  window.scrollTo({top:0, behavior:"smooth"});
+function closeAll(){
+  document.getElementById("serverInfo").classList.remove("active");
+  document.getElementById("staffApply").classList.remove("active");
+  window.scrollTo({top:0,behavior:"smooth"});
 }
+
+document.getElementById("serverInfo").addEventListener("transitionend",()=>{
+  document.getElementById("staffApply").classList.add("active");
+});
 </script>
 
 </body>
