@@ -27,11 +27,11 @@ body::after{
   content:"";
   position:fixed;
   inset:0;
-  background:rgba(0,0,0,0.55);
+  background:rgba(0,0,0,0.6);
   z-index:-1;
 }
 
-/* ===== HEADER ===== */
+/* ===== TOP HEADING ===== */
 header{
   position:absolute;
   top:20px;
@@ -54,7 +54,7 @@ header{
   animation:textMove 4s linear infinite;
 }
 
-/* ===== CENTER ===== */
+/* ===== CENTER BUTTONS ===== */
 .container{
   height:100vh;
   display:flex;
@@ -64,7 +64,6 @@ header{
   gap:25px;
 }
 
-/* ===== BUTTON ===== */
 .btn{
   padding:15px 55px;
   font-size:1.3em;
@@ -78,7 +77,7 @@ header{
   background:linear-gradient(135deg,#00c6ff,#0072ff);
   background-size:200% 200%;
 
-  box-shadow:0 0 20px rgba(0,198,255,0.7);
+  box-shadow:0 0 25px rgba(0,198,255,0.7);
   transition:0.4s;
 }
 
@@ -87,14 +86,14 @@ header{
   box-shadow:0 0 45px rgba(0,198,255,1);
 }
 
-/* ===== STAFF SECTION ===== */
+/* ===== STAFF APPLY SECTION ===== */
 #staffSection{
   min-height:100vh;
-  background:linear-gradient(180deg,#000,#071629);
   display:flex;
   justify-content:center;
   align-items:center;
-  padding:50px 15px;
+  padding:60px 20px;
+  background:linear-gradient(180deg,#000000,#071629);
 
   opacity:0;
   transform:translateY(120px);
@@ -108,60 +107,80 @@ header{
 
 /* ===== STAFF BOX ===== */
 .staff-box{
-  background:rgba(255,255,255,0.08);
-  backdrop-filter:blur(12px);
-  border-radius:20px;
-  padding:35px;
-  max-width:380px;
+  display:flex;
+  gap:30px;
+  max-width:950px;
   width:100%;
-  text-align:center;
+  padding:35px;
+  border-radius:22px;
+
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(14px);
 
   box-shadow:
-    0 0 25px rgba(0,198,255,0.4),
-    inset 0 0 15px rgba(255,255,255,0.1);
+    0 0 30px rgba(0,198,255,0.4),
+    inset 0 0 20px rgba(255,255,255,0.1);
 }
 
-/* LOGO IMAGE */
-.staff-box img{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:20px;
-  border:3px solid #00c6ff;
+/* LEFT CONTENT */
+.staff-left{
+  flex:1;
+  color:white;
 }
 
-/* TEXT */
-.staff-box h2{
-  font-size:2em;
-  margin-bottom:10px;
+.staff-left small{
+  opacity:0.7;
+  letter-spacing:1px;
+}
+
+.staff-left h2{
+  font-size:2.8em;
+  margin:15px 0;
   background:linear-gradient(90deg,#00c6ff,#0072ff);
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 }
 
-.staff-box p{
-  font-size:1em;
+.staff-left p{
+  font-size:1.05em;
+  margin-bottom:15px;
   opacity:0.9;
-  margin-bottom:25px;
+}
+
+/* RIGHT IMAGE */
+.staff-right{
+  flex:1;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.staff-right img{
+  width:100%;
+  max-width:420px;
+  border-radius:22px;
+  object-fit:cover;
+
+  box-shadow:
+    0 0 40px rgba(0,198,255,0.6);
 }
 
 /* APPLY BUTTON */
 .apply-btn{
+  margin-top:15px;
   padding:12px 45px;
   border:none;
-  border-radius:12px;
+  border-radius:14px;
   font-size:1.1em;
   cursor:pointer;
   color:white;
 
   background:linear-gradient(135deg,#00c6ff,#0072ff);
-  box-shadow:0 0 20px rgba(0,198,255,0.7);
+  box-shadow:0 0 25px rgba(0,198,255,0.7);
 }
 
-/* CLOSE */
 .closeBtn{
-  margin-top:20px;
+  margin-top:15px;
   background:none;
   border:none;
   color:#00c6ff;
@@ -169,16 +188,25 @@ header{
   cursor:pointer;
 }
 
-/* ANIMATIONS */
+/* ===== ANIMATION ===== */
 @keyframes textMove{
   to{background-position:200% center;}
 }
 
-/* MOBILE FIX */
+/* ===== MOBILE FIX ===== */
 @media(max-width:768px){
   header{
-    font-size:2.3em;
+    font-size:2.4em;
     letter-spacing:3px;
+  }
+
+  .staff-box{
+    flex-direction:column;
+    text-align:center;
+  }
+
+  .staff-right img{
+    max-width:300px;
   }
 }
 </style>
@@ -193,21 +221,30 @@ header{
   <button class="btn" onclick="openStaff()">Learn More</button>
 </div>
 
-<!-- ===== STAFF APPLY SECTION ===== -->
+<!-- ===== STAFF APPLY ===== -->
 <section id="staffSection">
   <div class="staff-box">
 
-    <!-- 👇 LOGO IMAGE (CHANGE THIS) -->
-    <img src="logo.png" alt="Logo">
+    <div class="staff-left">
+      <small>nexafyreZ-staff-apply</small>
+      <h2>Staff-apply</h2>
 
-    <h2>Staff Apply</h2>
-    <p>
-      Yahan tum staff apply ka text likh sakte ho.
-      Requirements, rules, ya form link.
-    </p>
+      <p>
+        We've just opened staff applications for NexafyreZ!  
+        If you're active, chill, and want to help keep the server fun
+        and safe, this is your chance.
+      </p>
 
-    <button class="apply-btn">Apply Now</button><br>
-    <button class="closeBtn" onclick="closeStaff()">Close</button>
+      <p>👉 Click below to apply</p>
+
+      <button class="apply-btn">Staff Apply</button><br>
+      <button class="closeBtn" onclick="closeStaff()">Close</button>
+    </div>
+
+    <div class="staff-right">
+      <!-- CHANGE IMAGE NAME -->
+      <img src="staff.png" alt="Staff Apply">
+    </div>
 
   </div>
 </section>
@@ -216,7 +253,7 @@ header{
 function openStaff(){
   const sec = document.getElementById("staffSection");
   sec.classList.add("active");
-  sec.scrollIntoView({behavior:"smooth", block:"start"});
+  sec.scrollIntoView({behavior:"smooth"});
 }
 
 function closeStaff(){
